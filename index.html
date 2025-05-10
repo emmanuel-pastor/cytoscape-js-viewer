@@ -1,0 +1,138 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cytoscape.js Viewer</title>
+  <link rel="stylesheet" href="css/style.css">
+  <meta name="description" content="A simple viewer for Cytoscape.js JSON files">
+
+  <meta property="og:title" content="Cytoscape.js Viewer">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+  <meta property="og:image:alt" content="">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.png">
+
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#fafafa">
+
+  <!-- Cytoscape.js library from CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.26.0/cytoscape.min.js"></script>
+
+  <style>
+    #cy-container {
+      position: relative;
+      width: 100%;
+      height: 600px;
+      border: 1px solid #ccc;
+      margin-top: 20px;
+    }
+
+    #cy {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    #no-graph-message {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: #666;
+      font-size: 18px;
+      display: none;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .upload-section {
+      margin-bottom: 20px;
+      padding: 15px;
+      background-color: #f5f5f5;
+      border-radius: 5px;
+    }
+
+    .error-message {
+      color: red;
+      margin-top: 10px;
+      display: none;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    h2 {
+      margin-top: 0;
+      margin-bottom: 15px;
+      font-size: 1.2em;
+      color: #444;
+    }
+
+    .instructions {
+      margin-bottom: 20px;
+      padding: 10px;
+      background-color: #e9f7fe;
+      border-left: 4px solid #4286f4;
+      border-radius: 3px;
+    }
+
+    input[type="file"] {
+      margin-right: 10px;
+      padding: 5px;
+    }
+
+    button {
+      padding: 6px 12px;
+      background-color: #4286f4;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #3a75d8;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Cytoscape.js Viewer</h1>
+
+    <div class="instructions">
+      <p>This is a simple viewer for Cytoscape.js JSON files. Upload a JSON file to visualize the graph.</p>
+      <p>You can drag nodes to rearrange the graph, zoom with the mouse wheel, and pan by dragging the background.</p>
+    </div>
+
+    <div class="upload-section">
+      <h2>Upload Cytoscape.js JSON File</h2>
+      <input type="file" id="file-upload" accept=".json">
+      <button id="reset-button">Reset Graph</button>
+      <div id="error-message" class="error-message"></div>
+      <p><a href="sample-graph.json" download>Download sample Cytoscape.js JSON file</a> to test the viewer.</p>
+    </div>
+
+    <div id="cy-container">
+      <div id="cy"></div>
+      <div id="no-graph-message">No graph loaded. Please upload a Cytoscape.js JSON file.</div>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,18 @@
+{
+  "elements": {
+    "nodes": [
+      { "data": { "id": "a", "label": "Node A" } },
+      { "data": { "id": "b", "label": "Node B" } },
+      { "data": { "id": "c", "label": "Node C" } },
+      { "data": { "id": "d", "label": "Node D" } },
+      { "data": { "id": "e", "label": "Node E" } }
+    ],
+    "edges": [
+      { "data": { "id": "ab", "source": "a", "target": "b", "label": "Edge AB" } },
+      { "data": { "id": "bc", "source": "b", "target": "c", "label": "Edge BC" } },
+      { "data": { "id": "cd", "source": "c", "target": "d", "label": "Edge CD" } },
+      { "data": { "id": "de", "source": "d", "target": "e", "label": "Edge DE" } },
+      { "data": { "id": "ea", "source": "e", "target": "a", "label": "Edge EA" } }
+    ]
+  }
+}
