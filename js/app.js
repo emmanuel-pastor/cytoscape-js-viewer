@@ -1,3 +1,8 @@
+// Register the cytoscape-dagre extension
+if (typeof cytoscape('layout', 'dagre') !== 'function') {
+  cytoscape.use(cytoscapeDagre);
+}
+
 // Initialize Cytoscape instance
 let cy = null;
 
@@ -74,14 +79,15 @@ function initCytoscape(elements) {
       }
     ],
     layout: {
-      name: 'cose',
-      padding: 50,
-      idealEdgeLength: 100,
-      nodeOverlap: 20,
-      refresh: 20,
+      name: 'dagre',
       fit: true,
+      padding: 50,
       animate: true,
-      randomize: false
+      randomize: false,
+      nodeSep: 100,
+      edgeLengthVal: 100,
+      rankSep: 150,
+      rankDir: 'LR'
     }
   });
 

@@ -21,8 +21,15 @@
   <link rel="manifest" href="site.webmanifest">
   <meta name="theme-color" content="#fafafa">
 
-  <!-- Cytoscape.js library from CDN -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.26.0/cytoscape.min.js"></script>
+
+  <!-- Load Dagre (dependency for cytoscape-dagre) -->
+  <script src="https://unpkg.com/dagre@0.8.5/dist/dagre.min.js"></script>
+
+  <!-- Load Cytoscape.js -->
+  <script src="https://unpkg.com/cytoscape@3.28.0/dist/cytoscape.min.js"></script>
+
+  <!-- Load Cytoscape-Dagre layout extension -->
+  <script src="https://unpkg.com/cytoscape-dagre@2.5.0/cytoscape-dagre.js"></script>
 
   <style>
     #cy-container {
