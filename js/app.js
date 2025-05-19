@@ -79,15 +79,11 @@ function initCytoscape(elements) {
       }
     ],
     layout: {
-      name: 'dagre',
+      name: 'preset',
       fit: true,
       padding: 50,
       animate: true,
       randomize: false,
-      nodeSep: 100,
-      edgeLengthVal: 100,
-      rankSep: 150,
-      rankDir: 'LR'
     }
   });
 
