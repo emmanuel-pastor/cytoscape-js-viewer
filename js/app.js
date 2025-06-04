@@ -69,7 +69,7 @@ function initCytoscape(elements) {
             'text-margin-y': -10,
             'taxi-direction': "rightward",
             'taxi-turn': 40,
-            'taxi-turn-min-distance': 20
+            'taxi-turn-min-distance': 5
           }
         },
         {
