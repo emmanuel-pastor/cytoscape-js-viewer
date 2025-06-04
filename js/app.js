@@ -66,7 +66,10 @@ function initCytoscape(elements) {
             'curve-style': 'taxi',
             'label': 'data(label)',
             'text-rotation': 'autorotate',
-            'text-margin-y': -10
+            'text-margin-y': -10,
+            'taxi-direction': "rightward",
+            'taxi-turn': 40,
+            'taxi-turn-min-distance': 20
           }
         },
         {
