@@ -22,8 +22,8 @@ function initCytoscape(elements) {
 
   // Check if elements array is empty
   const isEmpty = !elements ||
-                 (Array.isArray(elements) && elements.length === 0) ||
-                 (elements.nodes && elements.nodes.length === 0 && elements.edges && elements.edges.length === 0);
+    (Array.isArray(elements) && elements.length === 0) ||
+    (elements.nodes && elements.nodes.length === 0 && elements.edges && elements.edges.length === 0);
 
   // Show/hide the no graph message based on whether elements are provided
   if (isEmpty) {
@@ -35,57 +35,58 @@ function initCytoscape(elements) {
 
   // Create a new Cytoscape instance
   cy = cytoscape({
-    container: cyContainer,
-    elements: elements,
-    style: [
-      {
-        selector: 'node',
-        style: {
-          'background-color': '#4286f4',
-          'label': 'data(label)',
-          'text-valign': 'center',
-          'text-halign': 'center',
-          'color': '#fff',
-          'text-outline-width': 2,
-          'text-outline-color': '#4286f4',
-          'width': 40,
-          'height': 40
+      container: cyContainer,
+      elements: elements,
+      style: [
+        {
+          selector: 'node',
+          style: {
+            'background-color': '#4286f4',
+            'label': 'data(label)',
+            'text-valign': 'center',
+            'text-halign': 'center',
+            'color': '#fff',
+            'text-outline-width': 2,
+            'text-outline-color': '#4286f4',
+            'width': 'data(size.width)',
+            'height': 'data(size.height)'
+          }
+        },
+        {
+          selector: 'node[!label]',
+          style: {
+            'label': 'data(id)'
+          }
+        },
+        {
+          selector: 'edge',
+          style: {
+            'width': 3,
+            'line-color': '#ccc',
+            'target-arrow-color': '#ccc',
+            'target-arrow-shape': 'triangle',
+            'curve-style': 'bezier',
+            'label': 'data(label)',
+            'text-rotation': 'autorotate',
+            'text-margin-y': -10
+          }
+        },
+        {
+          selector: 'edge[!label]',
+          style: {
+            'label': ''
+          }
         }
-      },
-      {
-        selector: 'node[!label]',
-        style: {
-          'label': 'data(id)'
-        }
-      },
-      {
-        selector: 'edge',
-        style: {
-          'width': 3,
-          'line-color': '#ccc',
-          'target-arrow-color': '#ccc',
-          'target-arrow-shape': 'triangle',
-          'curve-style': 'bezier',
-          'label': 'data(label)',
-          'text-rotation': 'autorotate',
-          'text-margin-y': -10
-        }
-      },
-      {
-        selector: 'edge[!label]',
-        style: {
-          'label': ''
-        }
+      ],
+      layout: {
+        name: 'preset',
+        fit: true,
+        padding: 50,
+        animate: true,
+        randomize: false,
       }
-    ],
-    layout: {
-      name: 'preset',
-      fit: true,
-      padding: 50,
-      animate: true,
-      randomize: false,
     }
-  });
+  );
 
   // Fit the graph to the viewport
   cy.fit();
@@ -103,7 +104,7 @@ function hideError() {
 }
 
 // Handle file upload
-fileUpload.addEventListener('change', function(event) {
+fileUpload.addEventListener('change', function (event) {
   const file = event.target.files[0];
 
   // Reset error message
@@ -121,15 +122,15 @@ fileUpload.addEventListener('change', function(event) {
 
   const reader = new FileReader();
 
-  reader.onload = function(e) {
+  reader.onload = function (e) {
     try {
       // Parse the JSON data
       const jsonData = JSON.parse(e.target.result);
 
       // Check if the JSON has the expected Cytoscape.js format
       if (!jsonData.elements &&
-          !(jsonData.nodes || jsonData.edges) &&
-          !Array.isArray(jsonData)) {
+        !(jsonData.nodes || jsonData.edges) &&
+        !Array.isArray(jsonData)) {
         showError('The JSON file does not appear to be a valid Cytoscape.js format.');
         return;
       }
@@ -158,7 +159,7 @@ fileUpload.addEventListener('change', function(event) {
     }
   };
 
-  reader.onerror = function() {
+  reader.onerror = function () {
     showError('Error reading the file.');
   };
 
@@ -182,7 +183,7 @@ function resetGraph() {
 resetButton.addEventListener('click', resetGraph);
 
 // Initialize when the DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   // Show the no-graph message initially
   noGraphMessage.style.display = 'block';
 
