@@ -49,7 +49,8 @@ function initCytoscape(elements) {
             'text-outline-width': 2,
             'text-outline-color': '#4286f4',
             'width': 'data(size.width)',
-            'height': 'data(size.height)'
+            'height': 'data(size.height)',
+            'shape': 'rectangle'
           }
         },
         {
@@ -68,7 +69,7 @@ function initCytoscape(elements) {
             'text-rotation': 'autorotate',
             'text-margin-y': -10,
             'taxi-direction': "rightward",
-            'taxi-turn': 40,
+            'taxi-turn': 30,
             'taxi-turn-min-distance': 5
           }
         },
