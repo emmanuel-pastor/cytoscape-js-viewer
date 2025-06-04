@@ -63,9 +63,7 @@ function initCytoscape(elements) {
           style: {
             'width': 3,
             'line-color': '#ccc',
-            'target-arrow-color': '#ccc',
-            'target-arrow-shape': 'triangle',
-            'curve-style': 'bezier',
+            'curve-style': 'taxi',
             'label': 'data(label)',
             'text-rotation': 'autorotate',
             'text-margin-y': -10
