@@ -33,6 +33,36 @@ function initCytoscape(elements) {
     noGraphMessage.style.display = 'none';
   }
 
+  // Adjust node positions to convert top-left coordinates to center coordinates
+  // which is what Cytoscape expects
+  if (elements.nodes) {
+    // Format with separate nodes and edges arrays
+    elements.nodes.forEach(node => {
+      if (node.position && node.data && node.data.size) {
+        node.position.x += node.data.size.width / 2;
+        node.position.y += node.data.size.height / 2;
+      }
+    });
+  } else if (Array.isArray(elements)) {
+    // Array format
+    elements.forEach(ele => {
+      if (ele.group !== 'edges' && ele.position && ele.data && ele.data.size) {
+        ele.position.x += ele.data.size.width / 2;
+        ele.position.y += ele.data.size.height / 2;
+      }
+    });
+  } else if (elements.elements) {
+    // Standard Cytoscape.js JSON format
+    if (Array.isArray(elements.elements.nodes)) {
+      elements.elements.nodes.forEach(node => {
+        if (node.position && node.data && node.data.size) {
+          node.position.x += node.data.size.width / 2;
+          node.position.y += node.data.size.height / 2;
+        }
+      });
+    }
+  }
+
   // Create a new Cytoscape instance
   cy = cytoscape({
       container: cyContainer,
